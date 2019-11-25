@@ -1,0 +1,24 @@
+<!--HTML for the time tracker page-->
+<div id='timerTimeField'>
+  <table id ='timerTicker'>
+    <tr>
+      <th id='hours'>00</th>
+      <th>h</th>
+      <th>&nbsp;</th>
+      <th id='minutes'>00</th>
+      <th>min</th>
+    </tr>
+  </table>
+</div>
+<br>
+
+<div id ='TimerTaskInfo'>
+  <div id = 'message'></div>
+  <br>
+  <div>Due date:</div>
+  <div>Priority:</div>
+  <br>
+  <button id='startBtn' onclick = 'trackTime()'>Start Tracking!</button>
+  <button id='finishBtn' style = 'display:none; margin-left:auto;
+  margin-right:auto;' onclick = 'stopTrackingTime()'>Stop Tracking Time</button>
+</div>

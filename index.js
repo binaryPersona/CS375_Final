@@ -66,3 +66,51 @@ function loadTasks() {
     }
   });
 }
+
+function loadTimer() {
+  titleDiv = document.getElementById('pageTitle');
+  titleDiv.innerHTML = 'Timer';
+  titleDiv = document.getElementById('headerTitle');
+  titleDiv.innerHTML = '<p>Task in Progress: task name</p>';
+  
+  $.ajax({
+    type: "GET",
+    url: './loadTimerPage',
+    dataType: "html",
+ 
+    success: function(result) {
+      document.getElementById('body').innerHTML = result;
+    },
+    error: function(jgXHR, textStatus, errorThrown) {
+      alert("Error: " + textStatus + " " + errorThrown);
+    }
+  });
+}
+
+function trackTime(){
+  messageDiv = document.getElementById('message');
+  startBtn = document.getElementById('startBtn');
+  finishBtn = document.getElementById('finishBtn');
+  startBtn.style.display = 'none';
+  finishBtn.style.display = 'block';
+  messageDiv.innerHTML = 'You are tracking your time now!';
+  setTimeout(function(){
+    messageDiv.innerHTML = '';
+  }, 2000);
+
+  minutesCell = document.getElementById('minutes');
+  minutes = 0;
+  setInterval(function(){
+    minutes+=1;
+    minutesCell.innerHTML = minutes;
+  }, 1000*60);
+}
+
+function stopTrackingTime(){
+  messageDiv = document.getElementById('message');
+  hours = document.getElementById('hours').innerHTML;
+  minutes = document.getElementById('minutes').innerHTML;
+  messageDiv.innerHTML = 'You stopped tracking your time. You worked for '+ hours + ' hours and ' + minutes + ' minutes. Great job!';
+  
+}
+

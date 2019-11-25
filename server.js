@@ -35,6 +35,11 @@ app.get("/loadTasksPage", function(req,res){
         res.send(tasksHtml);
 });
 
+app.get("/loadTimerPage", function(req,res){
+	var timerHtml = fs.readFileSync('./HTMLpages/timer.html');
+        res.send(timerHtml);
+});
+
 app.listen(8080, function(){
       console.log('Server Running');
 });
